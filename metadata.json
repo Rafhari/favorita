@@ -1,5 +1,4 @@
 {
-  "name": "Copy of Favorita Brindes Chat Agent",
-  "description": "A chat agent to answer questions about Favorita Brindes products and services.",
-  "requestFramePermissions": []
+  "name": "Favorita Brindes Chat Agent",
+  "description": "A chat agent to answer questions about Favorita Brindes products and services."
 }
