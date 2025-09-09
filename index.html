@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <title>Favorita Brindes Chat Agent</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://aistudiocdn.com/@google/genai@^1.18.0",
+          "marked": "https://aistudiocdn.com/marked@^16.2.1"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="header-content">
+          <h1>Assistente Favorita Brindes</h1>
+          <p>Pergunte sobre nossos produtos e serviços</p>
+        </div>
+        <div class="header-buttons">
+          <button id="catalog-button">Ver Catálogo</button>
+          <button id="clear-chat-button">Limpar Chat</button>
+        </div>
+      </header>
+      <main id="chat-container"></main>
+      <form id="chat-form" aria-label="Chat form">
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Digite sua pergunta..."
+          aria-label="Chat input"
+          autocomplete="off"
+          required
+        />
+        <button type="submit" aria-label="Send message">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            width="24"
+            height="24"
+            aria-hidden="true"
+          >
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- Catalog Modal -->
+    <div id="catalog-modal" class="modal-overlay" aria-hidden="true">
+      <div
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="catalog-title"
+      >
+        <header class="modal-header">
+          <h2 id="catalog-title">Catálogo de Produtos</h2>
+          <button id="close-catalog-button" aria-label="Fechar catálogo">
+            &times;
+          </button>
+        </header>
+        <div class="modal-body">
+          <input
+            type="search"
+            id="product-search"
+            placeholder="Buscar produtos..."
+            aria-label="Buscar produtos"
+          />
+          <div id="product-grid" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-detail-modal" class="modal-overlay" aria-hidden="true">
+      <div
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="product-detail-title"
+      >
+        <header class="modal-header">
+          <h2 id="product-detail-title">Detalhes do Produto</h2>
+          <button id="close-detail-button" aria-label="Fechar detalhes do produto">
+            &times;
+          </button>
+        </header>
+        <div class="modal-body" id="product-detail-content">
+          <!-- Product details will be injected here -->
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="index.tsx"></script>
+  </body>
+</html>
